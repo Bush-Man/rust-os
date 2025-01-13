@@ -3,6 +3,7 @@ use volatile::Volatile;
 use core::fmt::*;
 use lazy_static::*;
 use spin::Mutex;
+use core::fmt::Arguments;
 
 #[allow(dead_code)]
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -124,6 +125,27 @@ lazy_static!{
         buffer: unsafe{&mut *(0xb8000 as *mut Buffer)}
     });
 }
+
+
+#[macro_export]
+macro_rules! print{
+    ($($arg:tt)*)=>($crate::vga_buffer::_print(format_args!($($arg)*)));
+}
+
+
+#[macro_export]
+macro_rules! println {
+    ()=>($crate::print!("\n"));
+
+    ($($arg:tt)*)=>($crate::print!("{}\n",format_args!($($arg)*)));
+}
+
+#[doc(hidden)]
+pub fn _print(args:Arguments){
+    WRITER.lock().write_fmt(args).unwrap();
+}
+
+
 // pub fn print_something(){
 //     let mut writer = Writer{
 //         color_code: ColorCode::new(Color::Black,Color::Yellow),

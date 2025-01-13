@@ -7,7 +7,8 @@ mod vga_buffer;
 use core::panic::PanicInfo;
 
 #[panic_handler]
-fn panic_handler(_panic_info:&PanicInfo)->!{
+fn panic_handler(panic_info:&PanicInfo)->!{
+    println!("{}",panic_info);
     loop {
         
     }
@@ -16,9 +17,11 @@ fn panic_handler(_panic_info:&PanicInfo)->!{
 #[no_mangle]
 pub extern "C" fn _start()->!{
 
-    use core::fmt::Write;
-    vga_buffer::WRITER.lock().write_str("Hello world").unwrap();
-    write!(vga_buffer::WRITER.lock(),"Some numbers {} {}",42,3.421).unwrap();
+    print!("Hello World{}", "!");
+    println!("Hello World{}", "!");
+    panic!("some panic message");
+    // vga_buffer::WRITER.lock().write_str("Hello world").unwrap();
+    // write!(vga_buffer::WRITER.lock(),"Some numbers {} {}",42,3.421).unwrap();
 
     //   vga_buffer::print_something();
     // // static HELLO:&[u8] = b"Hello World";
