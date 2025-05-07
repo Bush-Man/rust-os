@@ -120,15 +120,5 @@
 
 ---
 
-### Learning Resources
-   - **Books**:
-     - *Operating Systems: Design and Implementation* by Andrew S. Tanenbaum.
-     - *Modern Operating Systems* by Andrew S. Tanenbaum.
-   - **Online Tutorials**:
-     - OSDev Wiki (https://wiki.osdev.org/).
-     - MIT’s xv6 documentation.
-   - **Open-Source Kernels**:
-     - Linux, FreeBSD, or MINIX for reference.
 
----
 
