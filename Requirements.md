@@ -1,6 +1,4 @@
-Building an operating system (OS) kernel is a complex and challenging task that requires a deep understanding of computer architecture, low-level programming, and system design. Below is a high-level overview of the key components and features you should consider implementing when building an OS kernel:
 
----
 
 ### 1. **Bootloader Integration**
    - The kernel needs to be loaded into memory by a bootloader (e.g., GRUB, or a custom bootloader).
@@ -134,4 +132,3 @@ Building an operating system (OS) kernel is a complex and challenging task that 
 
 ---
 
-Building an OS kernel is a long-term project that requires patience and persistence. Start small (e.g., a minimal kernel that boots and prints "Hello, World!") and gradually add features. Good luck!
